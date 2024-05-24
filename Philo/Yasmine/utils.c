@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:03:42 by yfontene          #+#    #+#             */
-/*   Updated: 2024/05/21 17:41:03 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:21:26 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,8 @@ void time_check(unsigned long duration, t_table *table)
 	}
 }
 
-int	ft_strlen(char *str)
-{
-	int i;
 
-	i = 0;
-	while(str[i])
-	{
-		i++;
-	}
-	return(i);
-}
-
-int	ft_isint(const char *str_num)
+int	ft_checkint(const char *str_num)
 {
 	int i;
 	int	signal;
@@ -73,6 +62,18 @@ int	ft_isint(const char *str_num)
 			signal *= -1;
 		i++;
 	}
-	while(str_num[i] !=0 && (str_num[i] >= 48 && str_num[i]<= 57))
-		if()
+	while(str_num[i] !=0 && (str_num[i] >= 0 && str_num[i]<= 9))
+	{
+		if(result > 214778364 || (result ==214748364 && ((!signal && str_num[i] - '0' > 7) || (signal && str_num[i] - '0' > '8'))))
+			return(0);
+		else
+			result = (result * 10) + str_num[i++] - '0';
+	}
+	return (1);	
+}
+
+int ft_error(char *msg_error)
+{
+	write(2, msg_error, ft_strlen(msg_error));
+	return (0);
 }

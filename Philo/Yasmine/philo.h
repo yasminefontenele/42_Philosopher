@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:40:40 by yfontene          #+#    #+#             */
-/*   Updated: 2024/05/21 17:31:33 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/05/24 19:09:49 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 	<time to eat> <time to sleep> B[optional]RST<n times each philosopher must\
 	eat>\n"
 
+struct	t_table;
+
 //representa cada filósofo
 typedef struct s_philo
 {
@@ -51,8 +53,7 @@ typedef struct s_philo
 	unsigned long	last_ate;
 	pthread_t		philo_id;
 	struct s_table	*table;//garante o acesso de cada um na "mesa"
-	
-}				t_philo;
+}	t_philo;
 
 typedef struct s_table
 {
@@ -67,13 +68,52 @@ typedef struct s_table
 	pthread_mutex_t	count_meal;
 	pthread_mutex_t	writing;//proteger o acesso as msgs na saída padrão
 	t_philo			*philos;//array de filosofos
-	
-}				t_table;
+}	t_table;
+
+// typedef struct s_philo
+// {
+// 	int				ate_times;
+// 	int				pos;
+// 	char			*pos_str;
+// 	int				ffork;
+// 	int				sfork;
+// 	unsigned long	last_ate;
+// 	struct s_env	*env;
+// 	pthread_t		thread_id;
+// }				t_philo;
+
+// typedef struct s_env
+// {
+// 	int				count;
+// 	int				time_to_die;
+// 	int				time_to_eat;
+// 	int				time_to_sleep;
+// 	int				eat_count_max;
+// 	unsigned long	start_time;
+// 	int				stop_condition;
+// 	int				max_ate;
+// 	t_philo			*philos;
+// 	pthread_mutex_t	*forks;
+// 	pthread_mutex_t	meal;
+// 	pthread_mutex_t	writing;
+// }				t_env;
+
+
+void time_check(unsigned long duration, t_table *table);
+unsigned long	get_time(void);
+int	ft_strlen(char *str);
+int	ft_checkint(const char *str_num);
+int ft_error(char *msg_error);
+char	*ft_itoa(int nbr);
+int	ft_atoi(const char *str);
+//init.c
+int	ft_init(t_table *table);
+//philo.c
+void print_philo(char *msg, t_philo *philo, int unlock);
 
 
 
-typedef
-
+//
 int		ft_atoi(const char *str);// convert a string to an integer
 void	*philo(void *arg);// function for the philosopher thread
 void	print_status(t_philo *philo, char *status);// print the status of the philosopher
