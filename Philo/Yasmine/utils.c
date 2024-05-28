@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:03:42 by yfontene          #+#    #+#             */
-/*   Updated: 2024/05/24 15:21:26 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/05/27 08:43:00 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <stddef.h>
-#include <sys/time.h>
 
 /*
 já faz parte da biblioeca <sys.time.h>
@@ -45,31 +43,30 @@ void time_check(unsigned long duration, t_table *table)
 }
 
 
-int	ft_checkint(const char *str_num)
+int ft_checkint(const char *str_num)
 {
-	int i;
-	int	signal;
-	long	result;
+    	int		i;
+	int		neg;
+	long	value;
 
 	i = 0;
-	signal = 0;
-	result = 0;
-	while(str_num[i] == ' ' || (str_num[i] >= 9 && str_num[i] <= 13))
+	value = 0;
+	neg = 0;
+	while ((str_num[i] == ' ' || (str_num[i] >= 9 && str_num[i] <= 13)))
 		i++;
-	if(str_num[i] == '-' || str_num[i] == '+')
-	{
-		if(str_num[i] == '-')
-			signal *= -1;
+	if (str_num[i] == '-')
+		neg = 1;
+	if (str_num[i] == '-' || str_num[i] == '+')
 		i++;
-	}
-	while(str_num[i] !=0 && (str_num[i] >= 0 && str_num[i]<= 9))
+	while (str_num[i] != '\0' && (str_num[i] >= 48 && str_num[i] <= 57))
 	{
-		if(result > 214778364 || (result ==214748364 && ((!signal && str_num[i] - '0' > 7) || (signal && str_num[i] - '0' > '8'))))
-			return(0);
+		if (value > 214748364 || (value == 214748364
+				&& ((!neg && str_num[i] - '0' > 7) || (neg && str_num[i] - '0' > 8))))
+			return (0);
 		else
-			result = (result * 10) + str_num[i++] - '0';
+			value = (value * 10) + str_num[i++] - '0';
 	}
-	return (1);	
+	return (1);
 }
 
 int ft_error(char *msg_error)

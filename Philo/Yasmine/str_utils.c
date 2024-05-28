@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:57:37 by yfontene          #+#    #+#             */
-/*   Updated: 2024/05/24 18:27:57 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/05/27 07:20:07 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <stddef.h>
 
 static int	ft_intlen(int num)
 {
@@ -44,6 +43,16 @@ static void ft_str_reverse(char *str)
 		end--;
 		start++;
 	}
+}
+
+int	ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+		i++;
+	return(i);
 }
 
 char	*ft_itoa(int nbr)
