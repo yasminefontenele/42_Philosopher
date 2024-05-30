@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:27:36 by yasmine           #+#    #+#             */
-/*   Updated: 2024/05/28 17:28:05 by yasmine          ###   ########.fr       */
+/*   Created: 2024/05/15 17:27:36 by yasmine           #+#    #+#             */
+/*   Updated: 2024/05/30 17:07:52 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philo_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int			i;
 	long int	n;
@@ -30,7 +30,7 @@ int	philo_atoi(char *str)
 	return (n);
 }
 
-int	philo_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*str1;
@@ -48,7 +48,7 @@ int	philo_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int	philo_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	size;
 
@@ -60,7 +60,7 @@ int	philo_strlen(const char *str)
 	return (size);
 }
 
-void	philo_free(t_table *table)
+void	ft_free(t_table *table)
 {
 	free(table->philo);
 	free(table->forks);

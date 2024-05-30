@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
+#    By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 15:41:03 by yfontene          #+#    #+#              #
-#    Updated: 2024/05/29 09:59:00 by yasmine          ###   ########.fr        #
+#    Updated: 2024/05/30 16:58:38 by yfontene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 GREEN				=	\033[0;32m
 RED					=	\033[0;31m
@@ -37,9 +36,9 @@ OBJS	=	$(SRCS:%.c=%.o)
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADER)
 			@$(CC) $(CFLAGS) $(OBJS) $(HEADER) -o $(NAME)
-			@echo "$(GREEN)Philosophers succesfully compiled!$(END)"
+			@echo "$(GREEN)Philosophers succesfully compiled! ✅$(END)"
 
 .c.o:
 			@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -50,7 +49,7 @@ clean:
 			
 fclean:		clean
 			@$(RM) $(NAME)
-			@echo "$(RED)Philosophers deleted!$(END)"
+			@echo "$(RED)Philosophers deleted! 🚮$(END)"
 
 re:			fclean all
 

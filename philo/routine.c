@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:28:28 by yasmine           #+#    #+#             */
-/*   Updated: 2024/05/29 10:01:03 by yasmine          ###   ########.fr       */
+/*   Created: 2024/05/15 17:28:28 by yasmine           #+#    #+#             */
+/*   Updated: 2024/05/30 17:17:26 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	routine_execute(t_table *table, int i)
 	return (TRUE);
 }
 
-void	*checker(void *args)
+void	*checker_death(void *args)
 {
 	t_table	*table;
 	int		i;
@@ -81,7 +81,7 @@ int	philo_print(t_table *table, int id, char *color, char *status)
 {
 	long long	now;
 
-	now = delta_time(table->start_time);
+	now = diff_time(table->start_time);
 	if (table->dead_philo == TRUE)
 		return (FALSE);
 	pthread_mutex_lock(&table->print);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 09:38:37 by yasmine           #+#    #+#             */
-/*   Updated: 2024/05/29 09:53:26 by yasmine          ###   ########.fr       */
+/*   Created: 2024/05/16 09:38:37 by yasmine           #+#    #+#             */
+/*   Updated: 2024/05/30 17:13:27 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	philo_is_dead(t_table *table, int *i)
 
 	if (*i == table->args.nbr_philo)
 		*i = 0;
-	time = delta_time(table->philo[*i].time_to_die);
+	time = diff_time(table->philo[*i].time_to_die);
 	if (time > table->args.time_to_die)
 	{
 		philo_print(table, table->philo[*i].philo_id, PINK, DIED);

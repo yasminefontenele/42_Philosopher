@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:39:41 by yasmine           #+#    #+#             */
-/*   Updated: 2024/05/29 09:58:32 by yasmine          ###   ########.fr       */
+/*   Created: 2024/05/16 16:39:41 by yasmine           #+#    #+#             */
+/*   Updated: 2024/05/30 18:02:00 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	create_threads(t_table *table)
 		i++;
 		usleep(1000);
 	}
-	if (pthread_create(&table->waiter, NULL, &checker, (void *) table) != 0)
+	if (pthread_create(&table->waiter, NULL, &checker_death, \
+		(void *) table) != 0)
 		return (FALSE);
 	usleep(1000);
 	if (join_threads(table) == FALSE)

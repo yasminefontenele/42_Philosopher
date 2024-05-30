@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:26:41 by yasmine           #+#    #+#             */
-/*   Updated: 2024/05/28 17:26:52 by yasmine          ###   ########.fr       */
+/*   Created: 2024/05/15 17:26:41 by yasmine           #+#    #+#             */
+/*   Updated: 2024/05/30 18:03:56 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /*
-** tv_sec is in seconds, 1 second = 1000 milliseconds
-** tv_usec is in microseconds, 1 microsecond = 0.001 milliseconds
+**já faz parte da biblioeca <sys.time.h>
+**struct timeval {
+**    time_t      tv_sec;// segundos -> 1sec = 1000milisec 
+**    suseconds_t tv_usec;//microssegundos -> 1micro == 0.001milisec
+**};
+**int   gettimeofday(struct timeval *, void *)
 */
 
 long long	get_time(void)
@@ -25,7 +29,7 @@ long long	get_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec * 0.001));
 }
 
-long long	delta_time(long long time)
+long long	diff_time(long long time)
 {
 	if (time > 0)
 		return (get_time() - time);
