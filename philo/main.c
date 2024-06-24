@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:09:17 by yasmine           #+#    #+#             */
-/*   Updated: 2024/06/14 15:44:56 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:18:20 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	ft_free(&table);
 	return (0);
 }
+
 /*/* TODO - definir args validos, philos e mesa ✅
 * main -> checar, inicializar e limpar ✅
 * rotina -> comer, dormir e pensar ✅

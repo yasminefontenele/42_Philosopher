@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philos.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:22:44 by yasmine           #+#    #+#             */
-/*   Updated: 2024/06/05 19:23:59 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:26:38 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ void	philo_data(t_table *table, int i, int j)
 
 int	just_one_philo(t_table *table)
 {
+	long long	now;
+	int id = 1;
+	
+	table->start_time = get_time();
+	now = diff_time(table->start_time);
 	if (pthread_mutex_init(&table->print, NULL) != 0)
 		return (FALSE);
-	table->start_time = get_time();
-	philo_print(table, 1, B_BLUE, FORK);
+	printf("%s %lld %d %s %s\n", B_BLUE, now, id, FORK, RESET);
 	exec_action(table->args.time_to_die);
-	philo_print(table, 1, PINK, DIED);
+	printf("%s %lld %d %s %s\n", PINK, (long long int)table->args.time_to_die, id, DIED, RESET);
 	ft_free(table);
 	return (TRUE);
 }
