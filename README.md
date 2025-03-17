@@ -70,7 +70,7 @@ Your program must comply with the following rules:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/philosophers.git
+   git clone https://github.com/yasminefontenele/42_Philosopher.git
    cd philosophers
 2. Compile the project using the provided Makefile
    ```bash
